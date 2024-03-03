@@ -12,6 +12,9 @@ final class NonEmptyArrayTests: XCTestCase {
         XCTAssertEqual(NonEmptyArray(1, 2, 3).items, [1, 2, 3])
         XCTAssertEqual(NonEmptyArray(1, 2, 3, 4).items, [1, 2, 3, 4])
         XCTAssertEqual(NonEmptyArray(NonEmptyArray(1, 2), NonEmptyArray(3, 4)), NonEmptyArray(1, 2, 3, 4))
+        XCTAssertNil(NonEmptyArray(repeating: 1, count: -1))
+        XCTAssertNil(NonEmptyArray(repeating: 1, count: 0))
+        XCTAssertEqual(NonEmptyArray(repeating: 1, count: 2), NonEmptyArray(1, 1))
     }
 
     // MARK: - Array
@@ -74,6 +77,9 @@ final class NonEmptyArrayTests: XCTestCase {
 
         sut.insert(0, at: 0)
         XCTAssertEqual(sut.items, [0, 1, 2, 3, 4])
+
+        sut.insert(123, at: 0)
+        XCTAssertEqual(sut.items, [123, 0, 1, 2, 3, 4])
     }
 
     func test_comparable_correctlyComparesNonEmptyArrays() {
@@ -130,6 +136,25 @@ final class NonEmptyArrayTests: XCTestCase {
         XCTAssertEqual(NonEmptyArray(1, 2, 3).reversed(), NonEmptyArray(3, 2, 1))
         XCTAssertEqual(NonEmptyArray(1, 2, 3).reversed().reversed(), NonEmptyArray(1, 2, 3))
         XCTAssertEqual(NonEmptyArray(3, 2, 1).reversed(), NonEmptyArray(1, 2, 3))
+    }
+
+    func test_random_returnsElementContained() {
+        let sut = NonEmptyArray(1, 2, 3, 4, 5)
+
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
+        XCTAssertTrue(sut.contains(sut.randomElement()))
     }
 
     // MARK: - Sequence
@@ -207,5 +232,11 @@ final class NonEmptyArrayTests: XCTestCase {
         XCTAssertEqual(sut[1], 3)
         XCTAssertEqual(sut[2], 2)
         XCTAssertEqual(sut[3], 1)
+    }
+
+    func test_max_returnsCorrectly() {
+        let sut = NonEmptyArray(1, 2, 3)
+
+        XCTAssertEqual(sut.max(), 3)
     }
 }

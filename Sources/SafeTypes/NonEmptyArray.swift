@@ -1,35 +1,48 @@
 public struct NonEmptyArray<Element> {
-    private(set) public var items: [Element]
+    public private(set) var items: [Element] {
+        get {
+            CollectionOfOne(head) + tail
+        }
+        set {
+            guard let first = newValue.first else {
+                return
+            }
+            self.head = first
+            self.tail = Array(newValue.dropFirst())
+        }
+    }
+
+    private var head: Element
+    private var tail: [Element]
+
+    public init(_ head: Element, _ tail: Element...) {
+        self.head = head
+        self.tail = tail
+    }
 
     public init?(_ items: [Element]) {
-        guard !items.isEmpty else {
+        guard let first = items.first else {
             return nil
         }
-        self.items = items
+        self.head = first
+        self.tail = Array(items.dropFirst())
     }
 
     public init?<S>(_ elements: S) where S : Sequence, Element == S.Element {
-        let items = Array(elements)
-        guard !items.isEmpty else {
-            return nil
-        }
-        self.items = items
-    }
-
-    public init(_ head: Element, _ tail: Element...) {
-        self.items = CollectionOfOne(head) + tail
+        self.init(Array(elements))
     }
 
     public init<S>(_ lhs: NonEmptyArray, _ rhs: S) where S : Sequence, Element == S.Element {
-        self.items = lhs.items + rhs
+        self.head = lhs.head
+        self.tail = lhs.tail + rhs
     }
 
     public init?(repeating repeatedValue: Element, count: Int) {
         guard count > 0 else {
             return nil
         }
-
-        self.items = Array(repeating: repeatedValue, count: count)
+        self.head = repeatedValue
+        self.tail = Array(repeating: repeatedValue, count: count - 1)
     }
 }
 
@@ -50,23 +63,6 @@ extension NonEmptyArray {
 
     public func filter(_ isIncluded: (Element) throws -> Bool) rethrows -> [Element] {
         try items.filter(isIncluded)
-    }
-
-    public mutating func popLast() -> Element? {
-        guard count > 1 else {
-            return nil
-        }
-
-        return items.popLast()
-    }
-
-    public mutating func removeLast(_ k: Int) {
-        guard k < count else {
-            items.removeLast(count - 1)
-            return
-        }
-
-        items.removeLast(k)
     }
 
     public func dropLast(_ k: Int) -> ArraySlice<Element> {
@@ -109,6 +105,71 @@ extension NonEmptyArray {
         try items.split(maxSplits: maxSplits, omittingEmptySubsequences: omittingEmptySubsequences, whereSeparator: isSeparator)
     }
 
+    public var last: Element {
+        tail.last ?? head
+    }
+
+    public func firstIndex(where predicate: (Element) throws -> Bool) rethrows -> Int? {
+        try items.firstIndex(where: predicate)
+    }
+
+    public func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
+        try items.last(where: predicate)
+    }
+
+    public func lastIndex(where predicate: (Element) throws -> Bool) rethrows -> Int? {
+        try items.lastIndex(where: predicate)
+    }
+
+    public func shuffled<T>(using generator: inout T) -> NonEmptyArray<Element> where T : RandomNumberGenerator {
+        NonEmptyArray(items.shuffled(using: &generator)) ?? self
+    }
+
+    public var isEmpty: Bool { false }
+
+    public var first: Element {
+        head
+    }
+
+    public var count: Int {
+        tail.count + 1
+    }
+
+    public func reversed() -> NonEmptyArray {
+        NonEmptyArray(items.reversed())!
+    }
+
+    public func index(_ i: Int, offsetBy distance: Int) -> Int {
+        items.index(i, offsetBy: distance)
+    }
+
+    public func index(_ i: Int, offsetBy distance: Int, limitedBy limit: Int) -> Int? {
+        items.index(i, offsetBy: distance, limitedBy: limit)
+    }
+
+    public var lazy: LazySequence<Array<Element>> {
+        items.lazy
+    }
+
+    // MARK: - Mutating
+
+    public mutating func popLast() -> Element? {
+        guard count > 1 else {
+            return nil
+        }
+
+        return items.popLast()
+    }
+
+    public mutating func removeLast(_ k: Int) {
+        guard k < count else {
+            items.removeLast(count - 1)
+            return
+        }
+
+        items.removeLast(k)
+    }
+
     public mutating func removeFirst() -> Element? {
         guard count > 1 else {
             return nil
@@ -126,62 +187,20 @@ extension NonEmptyArray {
         return items.removeFirst(k)
     }
 
-    public var last: Element {
-        items.last!
-    }
-
-    public func firstIndex(where predicate: (Element) throws -> Bool) rethrows -> Int? {
-        try items.firstIndex(where: predicate)
-    }
-
-    public func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
-        try items.last(where: predicate)
-    }
-
-    public func lastIndex(where predicate: (Element) throws -> Bool) rethrows -> Int? {
-        try items.lastIndex(where: predicate)
-    }
-
     public mutating func partition(by belongsInSecondPartition: (Element) throws -> Bool) rethrows -> Int {
         try items.partition(by: belongsInSecondPartition)
-    }
-
-    public func shuffled<T>(using generator: inout T) -> [Element] where T : RandomNumberGenerator {
-        items.shuffled(using: &generator)
     }
 
     public mutating func shuffle<T>(using generator: inout T) where T : RandomNumberGenerator {
         items.shuffle()
     }
 
-    public var lazy: LazySequence<Array<Element>> {
-        items.lazy
+    public func shuffled() -> NonEmptyArray<Element> {
+        NonEmptyArray(items.shuffled()) ?? self
     }
 
     public mutating func swapAt(_ i: Int, _ j: Int) {
         items.swapAt(i, j)
-    }
-
-     public var isEmpty: Bool { false }
-
-     public var first: Element {
-        items.first!
-    }
-
-     public var count: Int {
-        items.count
-    }
-
-    public func reversed() -> NonEmptyArray {
-        NonEmptyArray(items.reversed())!
-    }
-    
-    public func index(_ i: Int, offsetBy distance: Int) -> Int {
-        items.index(i, offsetBy: distance)
-    }
-
-    public func index(_ i: Int, offsetBy distance: Int, limitedBy limit: Int) -> Int? {
-        items.index(i, offsetBy: distance, limitedBy: limit)
     }
 
     public mutating func append(_ newElement: Element) {
@@ -196,23 +215,25 @@ extension NonEmptyArray {
         items.append(contentsOf: newElements)
     }
 
-    public mutating func insert(_ newElement: Element, at index: Int){
-        items.insert(newElement, at: index)
+    public mutating func insert(_ newElement: Element, at i: Int){
+        items.insert(newElement, at: i)
     }
 
-    public mutating func remove(at index: Int) -> Element? {
+    public mutating func remove(at i: Int) -> Element? {
         guard items.count > 1 else {
             return nil
         }
 
-        guard items.indices.contains(index) else {
+        guard items.indices.contains(i) else {
             return nil
         }
 
-        return items.remove(at: index)
+        return items.remove(at: i)
     }
 
-    public static func + <S>(lhs: NonEmptyArray, rhs: S) -> NonEmptyArray<Element> where S : Sequence, Element == S.Element {
+    // MARK: - Static
+
+    public static func +<S>(lhs: NonEmptyArray, rhs: S) -> NonEmptyArray<Element> where S : Sequence, Element == S.Element {
         NonEmptyArray(lhs, rhs)
     }
 
@@ -233,11 +254,39 @@ extension NonEmptyArray: Sequence {
 
 extension NonEmptyArray: Collection {
      public var startIndex: Int {
-        items.startIndex
+        0
     }
 
      public var endIndex: Int {
-        items.endIndex
+         tail.endIndex + 1
+    }
+
+    public func randomElement<T>(using generator: inout T) -> Element where T : RandomNumberGenerator {
+        items.randomElement(using: &generator) ?? head
+    }
+
+    public func randomElement() -> Element {
+        items.randomElement() ?? head
+    }
+
+    public func max() -> Element where Element: Comparable {
+        items.max() ?? head
+    }
+
+    public func max(by areInIncreasingOrder: (Self.Element, Self.Element) throws -> Bool) rethrows -> Element {
+        try items.max(by: areInIncreasingOrder) ?? head
+    }
+
+    public func min() -> Element where Element: Comparable {
+        items.min() ?? head
+    }
+
+    public func min(by areInIncreasingOrder: (Element, Element) throws -> Bool) rethrows -> Element {
+        try items.min(by: areInIncreasingOrder) ?? head
+    }
+
+    public func sorted(by areInIncreasingOrder: (Element, Element) throws -> Bool) rethrows -> NonEmptyArray<Element> {
+        NonEmptyArray(try items.sorted(by: areInIncreasingOrder)) ?? self
     }
 }
 
@@ -259,11 +308,11 @@ extension NonEmptyArray: MutableCollection {
 extension NonEmptyArray: BidirectionalCollection {
 
      public func index(before i: Int) -> Int {
-        items.index(before: i)
+        i - 1
     }
 
      public func index(after i: Int) -> Int {
-        items.index(after: i)
+        i + 1
     }
 }
 
@@ -272,6 +321,14 @@ extension NonEmptyArray: BidirectionalCollection {
 extension NonEmptyArray: CustomStringConvertible {
     public var description: String {
         items.description
+    }
+
+    public var debugDescription: String {
+        items.debugDescription
+    }
+
+    public var customMirror: Mirror {
+        items.customMirror
     }
 }
 
