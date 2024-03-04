@@ -31,18 +31,15 @@ Below are some of the types provided by SafeTypes and brief examples of their us
 
 ### `MultiElementsArray`
 
-An array that guarantees to have more than one element.
+An array that is guaranteed to have more than one element.
 
 ```swift
-let multiElements = MultiElementsArray(array: [1, 2, 3])
-print(multiElements.head)   // 1
-print(multiElements.second) // 2
-print(multiElements.tail)   // [2, 3]
+let multiElements = MultiElementsArray(1, 2, 3)
 ```
 
 ### `NonEmptyArray`
 
-An array that ensures it's never empty.
+An array that is guaranteed to have at least one element.
 
 ```swift
 let nonEmpty = NonEmptyArray(array: ["first", "second"])
@@ -52,29 +49,10 @@ print(nonEmpty.tail) // ["second"]
 
 ### `NonEmptyString`
 
-A string that's guaranteed to contain at least one character.
+A string that's guaranteed to contain at least one character (can be empty character).
 
 ```swift
-let nonEmptyString = NonEmptyString(string: "Hello!")
-print(nonEmptyString!) // "Hello!"
-```
-
-### `MinusOneToOne`
-
-Represents a value that's within the range of -1 to 1, inclusive.
-
-```swift
-let bounded = MinusOneToOne(value: 0.5)
-print(bounded) // 0.5
-```
-
-### `ZeroToOne`
-
-Represents a value from 0 to 1, exclusive of 0.
-
-```swift
-let normal = ZeroToOne(value: 0.999)
-print(normal) // 0.999
+let nonEmptyString = NonEmptyString("Hello!")
 ```
 
 ### Numeric Types
@@ -87,6 +65,22 @@ let positive = Positive(42)
 let negative = Negative(-3)
 let nonPositive = NonPositive(0)
 let nonNegative = NonNegative(0.1)
+```
+
+### `MinusOneToOne`
+
+Represents a value that's within the range of -1 to 1, inclusive.
+
+```swift
+let bounded = MinusOneToOne(0.5)
+```
+
+### `ZeroToOne`
+
+Represents a value from 0 to 1, inclusive.
+
+```swift
+let normal = ZeroToOne(0.999)
 ```
 
 Each type guarantees compliance with its stated constraints such as non-zeroness, positivity, or negativity, so that your functions and methods can rely on those qualities.
