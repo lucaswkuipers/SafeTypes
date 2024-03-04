@@ -1,5 +1,5 @@
 import XCTest
-import SafeTypes
+@testable import SafeTypes
 
 final class NonEmptyArrayTests: XCTestCase {
 

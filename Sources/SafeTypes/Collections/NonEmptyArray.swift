@@ -20,6 +20,20 @@ public struct NonEmptyArray<Element> {
         self.tail = tail
     }
 
+    public init(_ head: Element, _ tail: [Element]) {
+        self.head = head
+        self.tail = tail
+    }
+
+    public init(_ multiElementsArray: MultiElementsArray<Element>) {
+        self = multiElementsArray.toNonEmptyArray
+    }
+
+    public init?<S>(_ head: Element, _ tail: S) where S : Sequence, Element == S.Element {
+        self.head = head
+        self.tail = Array(tail)
+    }
+
     public init?(_ items: [Element]) {
         guard let first = items.first else {
             return nil
@@ -131,8 +145,8 @@ extension NonEmptyArray {
         head
     }
 
-    public var count: Int {
-        tail.count + 1
+    public var count: Positive<Int> {
+        Positive(tail.count + 1)!
     }
 
     public func reversed() -> NonEmptyArray {
@@ -322,11 +336,19 @@ extension NonEmptyArray: CustomStringConvertible {
     public var description: String {
         items.description
     }
+}
 
+// MARK: - CustomDebugStringConvertible
+
+extension NonEmptyArray: CustomDebugStringConvertible {
     public var debugDescription: String {
         items.debugDescription
     }
+}
 
+// MARK: - CustomReflectable
+
+extension NonEmptyArray: CustomReflectable {
     public var customMirror: Mirror {
         items.customMirror
     }
