@@ -8,8 +8,6 @@ SafeTypes is a _Swift_ package that delivers a suite of strongly-typed wrappers 
 
 By ensuring conditions at compile time, SafeTypes allows developers to write safer, more robust and expressive code with reduced boilerplate, increased performance, and improved documentation through its constrained types.
 
-SafeTypes is awesome and Macros makes it even more so. [Check it out.](https://github.com/lucaswkuipers/SafeTypesMacros)
-
 ## Features
 
 - [x] Type-safe containers that prevent invalid states
@@ -94,10 +92,6 @@ NonEmptyArray() // Doesn't compile, missing arguments
 A string that's guaranteed to contain at least one character (can be empty character).
 
 ```swift
-// ✅ Non Optional Initializers
-
-#NonEmptyString("Alice") // NonEmptyString
-
 // ❓ Optional Initializers
 
 NonEmptyString(["Alice", "Bob"]) // Optional<NonEmptyString>
@@ -105,7 +99,6 @@ NonEmptyString(repeating: 1, count: "h") // Optional<NonEmptyString>
 
 // ❌ Fails to compile
 
-#NonEmptyString("") // Doesn't compile, macro argumnt can't be empty
 NonEmptyString() // Doesn't compile, missing initializer argument
 ```
 
@@ -118,11 +111,6 @@ NonEmptyString() // Doesn't compile, missing initializer argument
 A number that is guaranteed to be greater than zero (value > 0)
 
 ```swift
-// ✅ Non Optional Initializers
-
-#Positive(123) // Positive<Int>
-#Positive(42.69) // Positive<Double>
-
 // ❓ Optional Initializers
 
 Positive(123) // Optional<Positive<Int>>
@@ -130,9 +118,6 @@ Positive(42.69) // Optional<Positive<Double>>
 
 // ❌ Fails to compile
 
-#Positive(-1) // Doesn't compile, macro argument can't be negative
-#Positive(0) // Doesn't compile, macro argumnt can't be zero
-#Positive() // Doesn't compile, missing macro argument
 Positive() // Doesn't compile, missing initializer argument
 ```
 
@@ -143,11 +128,6 @@ Positive() // Doesn't compile, missing initializer argument
 A number that is guaranteed to be less than zero (value < 0)
 
 ```swift
-// ✅ Non Optional Initializers
-
-#Negative(-123) // Negative<Int>
-#Negative(-42.69) // Negative<Double>
-
 // ❓ Optional Initializers
 
 Negative(-123) // Optional<Negative<Int>>
@@ -155,9 +135,6 @@ Negative(-42.69) // Optional<Negative<Double>>
 
 // ❌ Fails to compile
 
-#Negative(1) // Doesn't compile, macro argument can't be positive
-#Negative(0) // Doesn't compile, macro argumnt can't be zero
-#Negative() // Doesn't compile, missing macro argument
 Negative() // Doesn't compile, missing initializer argument
 ```
 
@@ -168,13 +145,6 @@ Negative() // Doesn't compile, missing initializer argument
 A number that is guaranteed to be less than or equal to zero (value <= 0)
 
 ```swift
-// ✅ Non Optional Initializers
-
-#NonPositive(-123) // NonPositive<Int>
-#NonPositive(-42.69) // NonPositive<Double>
-#NonPositive(0) // NonPositive<Int>
-#NonPositive(0.0) // NonPositive<Double>
-
 // ❓ Optional Initializers
 
 NonPositive(-123) // Optional<NonPositive<Int>>
@@ -183,9 +153,6 @@ NonPositive(0) // Optional<NonPositive<Int>>
 NonPositive(0.0) // Optional<NonPositive<Double>>
 
 // ❌ Fails to compile
-
-#NonPositive(1) // Doesn't compile, macro argument can't be positive
-#NonPositive() // Doesn't compile, missing macro argument
 NonPositive() // Doesn't compile, missing initializer argument
 ```
 
@@ -196,13 +163,6 @@ NonPositive() // Doesn't compile, missing initializer argument
 A number that is guaranteed to be greater than or equal to zero (value >= 0)
 
 ```swift
-// ✅ Non Optional Initializers
-
-#NonNegative(123) // NonNegative<Int>
-#NonNegative(42.69) // NonNegative<Double>
-#NonNegative(0) // NonNegative<Int>
-#NonNegative(0.0) // NonNegative<Double>
-
 // ❓ Optional Initializers
 
 NonNegative(123) // Optional<NonNegative<Int>>
@@ -212,9 +172,6 @@ NonNegative(0.0) // Optional<NonNegative<Double>>
 
 // ❌ Fails to compile
 
-#NonNegative(-123) // Doesn't compile, macro argument can't be negative
-#NonNegative(-42.69) // Doesn't compile, macro argument can't be negative
-#NonNegative() // Doesn't compile, missing macro argument
 NonNegative() // Doesn't compile, missing initializer argument
 ```
 
@@ -225,13 +182,6 @@ NonNegative() // Doesn't compile, missing initializer argument
 A number that is guaranteed to be different than zero (value != 0)
 
 ```swift
-// ✅ Non Optional Initializers
-
-#NonZero(123) // NonZero<Int>
-#NonZero(42.69) // NonZero<Double>
-#NonZero(-123) // NonZero<Int>
-#NonZero(-42.69) // NonZero<Double>
-
 // ❓ Optional Initializers
 
 NonZero(123) // Optional<NonZero<Int>>
@@ -241,9 +191,6 @@ NonZero(-42.69) // Optional<NonZero<Double>>
 
 // ❌ Fails to compile
 
-#NonZero(0) // Doesn't compile, macro argument can't be zero
-#NonZero(0.0) // Doesn't compile, macro argument can't be zero
-#NonZero() // Doesn't compile, missing macro argument
 NonZero() // Doesn't compile, missing initializer argument
 ```
 
@@ -254,16 +201,6 @@ NonZero() // Doesn't compile, missing initializer argument
 Represents a value that's within the range of -1 to 1, inclusive.
 
 ```swift
-// ✅ Non Optional Initializers
-
-#MinusOneToOne(-1) // MinusOneToOne<Int>
-#MinusOneToOne(-1.0) // MinusOneToOne<Double>
-#MinusOneToOne(-0.314159) // MinusOneToOne<Double>
-#MinusOneToOne(0) // MinusOneToOne<Int>
-#MinusOneToOne(0.0) // MinusOneToOne<Double>
-#MinusOneToOne(0.1234) // MinusOneToOne<Double>
-#MinusOneToOne(1) // MinusOneToOne<Double>
-
 // ❓ Optional Initializers
 
 MinusOneToOne(-1) // Optional<MinusOneToOne<Int>>
@@ -289,12 +226,6 @@ MinusOneToOne() // Doesn't compile, missing initializer argument
 Represents a value from 0 to 1, inclusive.
 
 ```swift
-// ✅ Non Optional Initializers
-#ZeroToOne(0) // ZeroToOne<Int>
-#ZeroToOne(0.0) // ZeroToOne<Double>
-#ZeroToOne(0.1234) // ZeroToOne<Double>
-#ZeroToOne(1) // ZeroToOne<Double>
-
 // ❓ Optional Initializers
 
 ZeroToOne(0) // Optional<ZeroToOne<Int>>
@@ -304,15 +235,16 @@ ZeroToOne(1) // Optional<ZeroToOne<Double>>
 
 // ❌ Fails to compile
 
-#ZeroToOne(-0.5) // Doesn't compile, macro argument can't be less than 0
-#ZeroToOne(42.1) // Doesn't compile, macro argument can't be greater than 1
-#ZeroToOne() // Doesn't compile, missing macro argument
 ZeroToOne() // Doesn't compile, missing initializer argument
 ```
 
 > Obs: To use `#ZeroToOne` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 Each type guarantees compliance with its stated constraints so that your functions and methods can rely on those qualities and pass them on (not losing information).
+
+## Extra Functionality: Macros
+
+SafeTypes is awesome and Macros makes it even more so. [Check it out.](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 ## Contributing
 
