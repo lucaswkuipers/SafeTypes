@@ -1,7 +1,8 @@
 # SafeTypes
 SafeTypes is a _Swift_ package that delivers a suite of strongly-typed wrappers for common data structures and primitives, enforcing specific constraints and providing functionality to operate safely within those bounds.
 
-![1](https://github.com/lucaswkuipers/SafeTypes/assets/59176579/ac38694e-e53b-43fb-8fe5-bc684bf5b936)
+![SafeTypesBanner](https://github.com/lucaswkuipers/SafeTypes/assets/59176579/498580bd-8a5a-46d6-ac08-d7b957742d46)
+
 
 By ensuring conditions such as non-emptiness or value range at compile time, SafeTypes allows developers to write more robust and expressive code with reduced boilerplate, increased performance, and improved documentation through types.
 
