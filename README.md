@@ -85,26 +85,26 @@ NonEmptyArray(repeating: 1, count: 1) // Optional<NonEmptyArray<Int>>
 NonEmptyArray() // Doesn't compile, missing arguments
 ```
 
-#### `NonEmptyString`
+#### [`NonEmptyString`](Sources/SafeTypes/Collections/NonEmptyString.swift)
 
 A string that's guaranteed to contain at least one character (can be empty character).
 
 ```swift
 // ✅ Non Optional Initializers
-
-NonEmptyArray(1) // NonEmptyArray<Int>
-NonEmptyArray(1.0, 2.0) // NonEmptyArray<Double>
-NonEmptyArray(false, true, true) // NonEmptyArray<Bool>
+#NonEmptyString("Alice") // NonEmptyString
 
 // ❓ Optional Initializers
 
-NonEmptyArray(["Alice", "Bob"]) // Optional<NonEmptyArray<String>>
-NonEmptyArray(repeating: 1, count: 1) // Optional<NonEmptyArray<Int>>
+NonEmptyString(["Alice", "Bob"]) // Optional<NonEmptyString>
+NonEmptyString(repeating: 1, count: "h") // Optional<NonEmptyString>
 
 // ❌ Fails to compile
 
-NonEmptyArray() // Doesn't compile, missing arguments
+#NonEmptyString("") // Doesn't compile, macro argumnt can't be empty
+NonEmptyString() // Doesn't compile, missing arguments
 ```
+
+To use the non optional, compile time safe `#NonEmptyString`, check [SwiftTypesMacro (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 ### Numbers
 
