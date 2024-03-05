@@ -15,6 +15,13 @@ public struct NonEmptyString {
         }
         self.characters = characters
     }
+
+    public init?(repeating repeatedValue: Character, count: Int) {
+        guard let characters = NonEmptyArray(repeating: repeatedValue, count: count) else {
+            return nil
+        }
+        self.characters = characters
+    }
 }
 
 // MARK: - Array
