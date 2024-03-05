@@ -328,7 +328,7 @@ If you want to start contributing but don't know what to work on, try looking at
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE.md) for more information.
 
 ## Contact
 
