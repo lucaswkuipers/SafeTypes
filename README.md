@@ -104,7 +104,7 @@ NonEmptyString(repeating: 1, count: "h") // Optional<NonEmptyString>
 NonEmptyString() // Doesn't compile, missing arguments
 ```
 
-To use the non optional, compile time safe `#NonEmptyString`, check [SwiftTypesMacro (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
+> Obs: To use `#NonEmptyString`, check [SwiftTypesMacro (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 ### Numbers
 
