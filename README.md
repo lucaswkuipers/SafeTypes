@@ -1,4 +1,7 @@
 # SafeTypes
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Flucaswkuipers%2FSafeTypes%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/lucaswkuipers/SafeTypes)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Flucaswkuipers%2FSafeTypes%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/lucaswkuipers/SafeTypes)
+
 SafeTypes is a _Swift_ package that delivers a suite of strongly-typed wrappers for common data structures and primitives, enforcing specific constraints and providing functionality to operate safely within those bounds.
 
 ![SafeTypesBanner](https://github.com/lucaswkuipers/SafeTypes/assets/59176579/498580bd-8a5a-46d6-ac08-d7b957742d46)
