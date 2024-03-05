@@ -24,7 +24,17 @@ Add the following to your `Package.swift` file's dependencies:
 .package(url: "https://github.com/lucaswkuipers/SafeTypes.git", from: "1.0.0")
 ```
 
-And then import wherever needed: `import SafeTypes`
+Or simply: Select `File` > `Add Package Dependencies`, and enter the following URL:
+
+```
+https://github.com/lucaswkuipers/RequestKit.git
+```
+
+And then, wherever needed:
+
+```swift
+import SafeTypes
+```
 
 ## Usage
 
@@ -35,7 +45,21 @@ Below are some of the types provided by SafeTypes and brief examples of their us
 An array that is guaranteed to have more than one element.
 
 ```swift
-let multiElements = MultiElementsArray(1, 2, 3)
+// ✅ Non Optional Initializers
+
+MultiElementsArray(1, 2) // MultiElementsArray<Int>
+MultiElementsArray(1.0, 2.0, 3.0) // MultiElementsArray<Double>
+MultiElementsArray(false, true, true, false) // MultiElementsArray<Bool>
+
+// ❓ Optional Initializers
+
+MultiElementsArray(["Alice", "Bob"]) // Optional<MultiElementsArray<String>>
+MultiElementsArray(repeating: 1, count: 2) // Optional<MultiElementsArray<Int>>
+
+// ❌ Fails to compile
+
+MultiElementsArray(1) // Doesn't compile, missing argument
+MultiElementsArray() // Doesn't compile, missing arguments
 ```
 
 ### `NonEmptyArray`
@@ -43,6 +67,20 @@ let multiElements = MultiElementsArray(1, 2, 3)
 An array that is guaranteed to have at least one element.
 
 ```swift
+// ✅ Non Optional Initializers
+
+NonEmptyArray(1) // NonEmptyArray<Int>
+NonEmptyArray(1.0, 2.0) // NonEmptyArray<Double>
+NonEmptyArray(false, true, true) // NonEmptyArray<Bool>
+
+// ❓ Optional Initializers
+
+NonEmptyArray(["Alice", "Bob"]) // Optional<NonEmptyArray<String>>
+NonEmptyArray(repeating: 1, count: 1) // Optional<NonEmptyArray<Int>>
+
+// ❌ Fails to compile
+
+NonEmptyArray() // Doesn't compile, missing arguments
 ```
 
 ### `NonEmptyString`
