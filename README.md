@@ -107,7 +107,7 @@ NonEmptyString(repeating: 1, count: "h") // Optional<NonEmptyString>
 NonEmptyString() // Doesn't compile, missing initializer argument
 ```
 
-> Obs: To use `#NonEmptyString` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
+> ⚠️ Attention: To use `#NonEmptyString` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 ### Numbers
 
