@@ -327,6 +327,10 @@ If you want to start contributing but don't know what to work on, try looking at
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+6. Oh and don't forget to add or update tests when applicable! :D
+
+Thank you so much for contributing <3
+
 ## License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
