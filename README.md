@@ -4,9 +4,9 @@
 
 SafeTypes is a _Swift_ package that delivers a suite of strongly-typed wrappers for common data structures and primitives, enforcing specific constraints and providing functionality to operate safely within those bounds.
 
-> If you are targetting Swift 5.9+ I highly suggest you install SafeTypesMacros alongside it. It adds macros for non optional initializers from literals (compilation-time check for literal values. Eg: #Positive(1) evaluates to Postive<Int>(1) instead of Optional<Postive<Int>(1)>, and #Positive(-1) would fail to compile!).
+> If you are targetting Swift 5.9+ I highly suggest you install SafeTypesMacros alongside it. It adds macros for non optional initializers from literals (compilation-time check for literal values. Eg: #Positive(1) evaluates to Postive<Int>(1) instead of Optional<Postive<Int>(1)>, and #Positive(-1) would fail to compile!).>
 
-![SafeTypesBanner](https://github.com/lucaswkuipers/SafeTypes/assets/59176579/498580bd-8a5a-46d6-ac08-d7b957742d46)
+![1](https://github.com/lucaswkuipers/SafeTypes/assets/59176579/dde8e422-5361-4276-8425-c10ba108974e)
 
 By ensuring conditions at compile time, SafeTypes allows developers to write safer, more robust and expressive code with reduced boilerplate, increased performance, and improved documentation through its constrained types.
 
