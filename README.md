@@ -24,7 +24,7 @@ Add the following to your `Package.swift` file's dependencies:
 .package(url: "https://github.com/lucaswkuipers/SafeTypes.git", from: "1.0.0")
 ```
 
-Or simply: Select `File` > `Add Package Dependencies`, and enter the following URL:
+Or simply Select `File` > `Add Package Dependencies`, and enter the following URL:
 
 ```
 https://github.com/lucaswkuipers/RequestKit.git
