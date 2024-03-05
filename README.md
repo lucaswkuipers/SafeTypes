@@ -40,7 +40,7 @@ import SafeTypes
 
 Below are some of the types provided by SafeTypes and brief examples of their usage:
 
-### `MultiElementsArray`
+### [`MultiElementsArray`](Sources/SafeTypes/Collections/MultiElementsArray.swift)
 
 An array that is guaranteed to have more than one element.
 
