@@ -349,4 +349,4 @@ Some of the relevant sources of inspiration:
 - [Type Driven Design Article Series by Alex Ozun](https://swiftology.io/collections/type-driven-design/))
 
 
-Thank you so much for considering [SafeTypes](https://github.com/lucaswkuipers/SafeTypes) and SafeTypesMacros for your next Swift project – I hope you find it as enjoyable to use as I found it to write!
+Thank you so much for considering [SafeTypes](https://github.com/lucaswkuipers/SafeTypes) and [SafeTypesMacros](https://github.com/lucaswkuipers/SafeTypesMacros) for your next Swift project – I hope you find it as enjoyable to use as I found it to write!
