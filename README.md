@@ -343,6 +343,5 @@ Some of the relevant sources of inspiration:
 - [Point-Free's NonEmpty](https://github.com/pointfreeco/swift-nonempty)
 - [Type Driven Design Article Series by Alex Ozun](https://swiftology.io/collections/type-driven-design/))
 
----
 
-Thank you for considering SafeTypes for your next Swift project – I hope you find it as enjoyable to use as I found it to write.
+Thank you so much for considering [SafeTypes](https://github.com/lucaswkuipers/SafeTypes) and SafeTypesMacros for your next Swift project – I hope you find it as enjoyable to use as I found it to write!
