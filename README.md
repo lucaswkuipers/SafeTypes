@@ -341,6 +341,10 @@ Feel free to reach out to me:
 
 [![image](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lucaswk/)
 
+## Swift Package Index
+
+SafeTypes can be found at [Swift Package Index](https://swiftpackageindex.com/lucaswkuipers/SafeTypes)
+
 ## Acknowledgements
 
 Some of the relevant sources of inspiration:
