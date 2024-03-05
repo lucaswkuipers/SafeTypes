@@ -43,9 +43,6 @@ let multiElements = MultiElementsArray(1, 2, 3)
 An array that is guaranteed to have at least one element.
 
 ```swift
-let nonEmpty = NonEmptyArray(array: ["first", "second"])
-print(nonEmpty.head) // "first"
-print(nonEmpty.tail) // ["second"]
 ```
 
 ### `NonEmptyString`
@@ -53,19 +50,36 @@ print(nonEmpty.tail) // ["second"]
 A string that's guaranteed to contain at least one character (can be empty character).
 
 ```swift
-let nonEmptyString = NonEmptyString("Hello!")
 ```
 
-### Numeric Types
-
-Here are some of our numeric types that help avoid incorrect values:
+### Positive
 
 ```swift
-let nonZero = NonZero(5)
-let positive = Positive(42)
-let negative = Negative(-3)
-let nonPositive = NonPositive(0)
-let nonNegative = NonNegative(0.1)
+
+```
+
+### Negative
+
+```swift
+
+```
+
+### NonPositive
+
+```swift
+
+```
+
+### NonNegative
+
+```swift
+
+```
+
+### NonZero
+
+```swift
+
 ```
 
 ### `MinusOneToOne`
@@ -81,7 +95,6 @@ let bounded = MinusOneToOne(0.5)
 Represents a value from 0 to 1, inclusive.
 
 ```swift
-let normal = ZeroToOne(0.999)
 ```
 
 Each type guarantees compliance with its stated constraints such as non-zeroness, positivity, or negativity, so that your functions and methods can rely on those qualities.
