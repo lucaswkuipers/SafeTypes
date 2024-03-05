@@ -115,9 +115,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name – [@YourTwitter](https://twitter.com/YourTwitter)
-
-Project Link: [https://github.com/username/SafeTypes](https://github.com/username/SafeTypes)
+Feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/lucaswk/)
 
 ## Acknowledgements
 
