@@ -10,7 +10,7 @@ SafeTypes is a _Swift_ package that delivers a suite of strongly-typed wrappers 
 
 By ensuring conditions at compile time, SafeTypes allows developers to write safer, more robust and expressive code with reduced boilerplate, increased performance, and improved documentation through its constrained types.
 
-ℹ️ Note: Most constructors from these custom types will be optional so any client needs to construct and deal with the unhappy path there.
+ℹ️ Note: Most constructors from these custom types will be optional so any client needs to construct and deal with the unhappy path at construction.
 > For compile time check validation (and non optional initializers) for literals (only literals, not dynamic values) [SafeTypesMacros](https://github.com/lucaswkuipers/SafeTypesMacros) adds special macros for it! I definitely recommend you check it out!
 
 ## Features
