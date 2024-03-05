@@ -126,7 +126,7 @@ extension MultiElementsArray {
     }
 
     public var last: Element {
-        tail.last ?? head
+        items.last ?? second
     }
 
     public func firstIndex(where predicate: (Element) throws -> Bool) rethrows -> Int? {
@@ -240,7 +240,7 @@ extension MultiElementsArray {
     }
 
     public mutating func remove(at i: Int) -> Element? {
-        guard items.count > 1 else {
+        guard items.count > 2 else {
             return nil
         }
 
@@ -259,6 +259,10 @@ extension MultiElementsArray {
 
     public static func +=(lhs: inout MultiElementsArray, rhs: MultiElementsArray) {
         lhs.append(contentsOf: rhs.items)
+    }
+
+    public static func +=<S>(lhs: inout MultiElementsArray, rhs: S) where S : Sequence, Element == S.Element {
+        lhs.append(contentsOf: rhs)
     }
 }
 

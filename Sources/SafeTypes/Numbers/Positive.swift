@@ -9,7 +9,7 @@ public struct Positive<Value: Number> {
     }
 }
 
-// MARK: - Product
+// MARK: - Multiplication
 
 extension Positive {
     public static func *(lhs: Positive, rhs: Positive) -> NonNegative<Value> {

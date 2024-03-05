@@ -251,8 +251,16 @@ extension NonEmptyArray {
         NonEmptyArray(lhs, rhs)
     }
 
+    public static func +(lhs: NonEmptyArray, rhs: NonEmptyArray) -> MultiElementsArray<Element> {
+        MultiElementsArray(lhs.items + rhs.items)!
+    }
+
      public static func +=(lhs: inout NonEmptyArray, rhs: NonEmptyArray) {
         lhs.append(contentsOf: rhs.items)
+    }
+
+    public static func +=<S>(lhs: inout NonEmptyArray, rhs: S) where S : Sequence, Element == S.Element {
+        lhs.append(contentsOf: rhs)
     }
 }
 

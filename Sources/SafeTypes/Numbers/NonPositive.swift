@@ -13,7 +13,7 @@ public struct NonPositive<Value: Number> {
     }
 }
 
-// MARK: - Product
+// MARK: - Multiplication
 
 extension NonPositive {
     public static func *(lhs: NonPositive, rhs: NonPositive) -> NonNegative<Value> {
@@ -25,6 +25,14 @@ extension NonPositive {
     }
 
     public static func *(lhs: NonNegative<Value>, rhs: NonPositive) -> NonPositive {
+        NonPositive(lhs.value * rhs.value)!
+    }
+
+    public static func *(lhs: NonPositive, rhs: Negative<Value>) -> NonNegative<Value> {
+        NonNegative(lhs.value * rhs.value)!
+    }
+
+    public static func *(lhs: NonPositive, rhs: Positive<Value>) -> NonPositive {
         NonPositive(lhs.value * rhs.value)!
     }
 }

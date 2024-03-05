@@ -174,11 +174,11 @@ extension NonEmptyString {
         characters.swapAt(i, j)
     }
 
-    public mutating func append(_ newElement: Element) {
-        characters.append(newElement)
+    public mutating func append(_ newElement: String) {
+        characters.append(contentsOf: newElement)
     }
 
-    public mutating func append(_ newElements: Element...) {
+    public mutating func append(_ newElements: Character...) {
         characters.append(contentsOf: newElements)
     }
 

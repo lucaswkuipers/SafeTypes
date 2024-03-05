@@ -19,7 +19,7 @@ extension MinusOneToOne {
     }
 }
 
-// MARK: - Product
+// MARK: - Multiplication
 
 extension MinusOneToOne {
     public static func *(lhs: MinusOneToOne, rhs: MinusOneToOne) -> MinusOneToOne {

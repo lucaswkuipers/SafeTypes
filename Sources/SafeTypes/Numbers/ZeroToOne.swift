@@ -19,7 +19,7 @@ extension ZeroToOne {
     }
 }
 
-// MARK: - Product
+// MARK: - Multiplication
 
 extension ZeroToOne {
     public static func *(lhs: ZeroToOne, rhs: ZeroToOne) -> ZeroToOne {

@@ -17,6 +17,30 @@ public struct NonNegative<Value: Number> {
     }
 }
 
+// MARK: - Multiplication
+
+extension NonNegative {
+    public static func *(lhs: NonNegative, rhs: NonNegative) -> NonNegative<Value> {
+        NonNegative(lhs.value * rhs.value)!
+    }
+
+    public static func *(lhs: NonNegative<Value>, rhs: Negative<Value>) -> NonPositive<Value> {
+        NonPositive(lhs.value * rhs.value)!
+    }
+}
+
+// MARK: - Addition
+
+extension NonNegative {
+    public static func +(lhs: NonNegative, rhs: NonNegative) -> NonNegative {
+        NonNegative(lhs.value + rhs.value)!
+    }
+
+    static public func +=(lhs: inout NonNegative, rhs: NonNegative) {
+        lhs = NonNegative(lhs.value + rhs.value)!
+    }
+}
+
 // MARK: - Equatable
 
 extension NonNegative: Equatable where Value: Equatable {
