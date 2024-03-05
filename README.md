@@ -3,8 +3,7 @@ SafeTypes is a _Swift_ package that delivers a suite of strongly-typed wrappers 
 
 ![SafeTypesBanner](https://github.com/lucaswkuipers/SafeTypes/assets/59176579/498580bd-8a5a-46d6-ac08-d7b957742d46)
 
-
-By ensuring conditions such as non-emptiness or value range at compile time, SafeTypes allows developers to write more robust and expressive code with reduced boilerplate, increased performance, and improved documentation through types.
+By ensuring conditions at compile time, SafeTypes allows developers to write safer, more robust and expressive code with reduced boilerplate, increased performance, and improved documentation through its constrained types.
 
 ## Features
 
@@ -27,7 +26,7 @@ Add the following to your `Package.swift` file's dependencies:
 Or simply Select `File` > `Add Package Dependencies`, and enter the following URL:
 
 ```
-https://github.com/lucaswkuipers/RequestKit.git
+https://github.com/lucaswkuipers/SafeTypes.git
 ```
 
 And then, wherever needed:
