@@ -8,6 +8,9 @@ SafeTypes is a _Swift_ package that delivers a suite of strongly-typed wrappers 
 
 By ensuring conditions at compile time, SafeTypes allows developers to write safer, more robust and expressive code with reduced boilerplate, increased performance, and improved documentation through its constrained types.
 
+ℹ️ Note: Most constructors from these custom types will be optional so any client needs to construct and deal with the unhappy path there.
+> For compile time check validation (and non optional initializers) for literals (only literals, not dynamic values) [SafeTypesMacros](https://github.com/lucaswkuipers/SafeTypesMacros) adds special macros for it! I definitely recommend you check it out!
+
 ## Features
 
 - [x] Type-safe containers that prevent invalid states
@@ -138,7 +141,7 @@ Negative(-42.69) // Optional<Negative<Double>>
 Negative() // Doesn't compile, missing initializer argument
 ```
 
-> Obs: To use `#Negative` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
+> Important: To use `#Negative` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 #### [NonPositive](Sources/SafeTypes/Numbers/NonPositive.swift)
 
@@ -288,4 +291,4 @@ Some of the relevant sources of inspiration:
 - [Type Driven Design Article Series by Alex Ozun](https://swiftology.io/collections/type-driven-design/))
 
 
-Thank you so much for considering [SafeTypes](https://github.com/lucaswkuipers/SafeTypes) and [SafeTypesMacros](https://github.com/lucaswkuipers/SafeTypesMacros) for your next Swift project – I hope you find it as enjoyable to use as I found it to write!
+Thank you so much for considering [SafeTypes](https://github.com/lucaswkuipers/SafeTypes) for your next Swift project – I hope you find it as enjoyable to use as I found it to write!
