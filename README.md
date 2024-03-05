@@ -124,7 +124,7 @@ Positive(42.69) // Optional<Positive<Double>>
 Positive() // Doesn't compile, missing initializer argument
 ```
 
-> Obs: To use `#Positive` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
+> ⚠️ Attention: To use `#Positive` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 #### [Negative](Sources/SafeTypes/Numbers/Negative.swift)
 
@@ -141,7 +141,7 @@ Negative(-42.69) // Optional<Negative<Double>>
 Negative() // Doesn't compile, missing initializer argument
 ```
 
-> Important: To use `#Negative` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
+> ⚠️ Attention: To use `#Negative` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 #### [NonPositive](Sources/SafeTypes/Numbers/NonPositive.swift)
 
@@ -159,7 +159,7 @@ NonPositive(0.0) // Optional<NonPositive<Double>>
 NonPositive() // Doesn't compile, missing initializer argument
 ```
 
-> Obs: To use `#NonPositive` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
+> ⚠️ Attention: To use `#NonPositive` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 #### [NonNegative](Sources/SafeTypes/Numbers/NonNegative.swift)
 
@@ -178,7 +178,7 @@ NonNegative(0.0) // Optional<NonNegative<Double>>
 NonNegative() // Doesn't compile, missing initializer argument
 ```
 
-> Obs: To use `#NonNegative` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
+> ⚠️ Attention: To use `#NonNegative` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 #### [NonZero](Sources/SafeTypes/Numbers/NonZero.swift)
 
@@ -197,7 +197,7 @@ NonZero(-42.69) // Optional<NonZero<Double>>
 NonZero() // Doesn't compile, missing initializer argument
 ```
 
-> Obs: To use `#NonZero` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
+> ⚠️ Attention: To use `#NonZero` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 #### [MinusOneToOne](Sources/SafeTypes/Numbers/MinusOneToOne.swift)
 
@@ -222,7 +222,7 @@ MinusOneToOne(1) // Optional<MinusOneToOne<Double>>
 MinusOneToOne() // Doesn't compile, missing initializer argument
 ```
 
-> Obs: To use `#MinusOneToOne` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
+> ⚠️ Attention: To use `#MinusOneToOne` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 #### [ZeroToOne](Sources/SafeTypes/Numbers/ZeroToOne.swift)
 
@@ -241,13 +241,13 @@ ZeroToOne(1) // Optional<ZeroToOne<Double>>
 ZeroToOne() // Doesn't compile, missing initializer argument
 ```
 
-> Obs: To use `#ZeroToOne` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
+> ⚠️ Attention: To use `#ZeroToOne` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 Each type guarantees compliance with its stated constraints so that your functions and methods can rely on those qualities and pass them on (not losing information).
 
-## Extra Functionality: Macros
+## Extra (Separate) Functionality: Macros Non Optional Initializers from Literals
 
-SafeTypes is awesome and Macros makes it even more so. [Check it out.](https://github.com/lucaswkuipers/SafeTypesMacros)
+SafeTypes is awesome and SafeTypesMacros makes it even more so by enabling you to construct the types from SafeTypes from literals and have them be evaluated (as valid or not) at compile time. [Check it out.](https://github.com/lucaswkuipers/SafeTypesMacros)
 
 ## Contributing
 
