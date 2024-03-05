@@ -40,7 +40,9 @@ import SafeTypes
 
 Below are some of the types provided by SafeTypes and brief examples of their usage:
 
-### [`MultiElementsArray`](Sources/SafeTypes/Collections/MultiElementsArray.swift)
+### Collections
+
+#### [`MultiElementsArray`](Sources/SafeTypes/Collections/MultiElementsArray.swift)
 
 An array that is guaranteed to have more than one element.
 
@@ -62,7 +64,7 @@ MultiElementsArray(1) // Doesn't compile, missing argument
 MultiElementsArray() // Doesn't compile, missing arguments
 ```
 
-### `NonEmptyArray`
+#### [`NonEmptyArray`](Sources/SafeTypes/Collections/NonEmptyArray.swift)
 
 An array that is guaranteed to have at least one element.
 
@@ -83,44 +85,60 @@ NonEmptyArray(repeating: 1, count: 1) // Optional<NonEmptyArray<Int>>
 NonEmptyArray() // Doesn't compile, missing arguments
 ```
 
-### `NonEmptyString`
+#### `NonEmptyString`
 
 A string that's guaranteed to contain at least one character (can be empty character).
 
 ```swift
+// ✅ Non Optional Initializers
+
+NonEmptyArray(1) // NonEmptyArray<Int>
+NonEmptyArray(1.0, 2.0) // NonEmptyArray<Double>
+NonEmptyArray(false, true, true) // NonEmptyArray<Bool>
+
+// ❓ Optional Initializers
+
+NonEmptyArray(["Alice", "Bob"]) // Optional<NonEmptyArray<String>>
+NonEmptyArray(repeating: 1, count: 1) // Optional<NonEmptyArray<Int>>
+
+// ❌ Fails to compile
+
+NonEmptyArray() // Doesn't compile, missing arguments
 ```
 
-### Positive
+### Numbers
+
+#### Positive
 
 ```swift
 
 ```
 
-### Negative
+#### Negative
 
 ```swift
 
 ```
 
-### NonPositive
+#### NonPositive
 
 ```swift
 
 ```
 
-### NonNegative
+#### NonNegative
 
 ```swift
 
 ```
 
-### NonZero
+#### NonZero
 
 ```swift
 
 ```
 
-### `MinusOneToOne`
+#### `MinusOneToOne`
 
 Represents a value that's within the range of -1 to 1, inclusive.
 
@@ -128,7 +146,7 @@ Represents a value that's within the range of -1 to 1, inclusive.
 let bounded = MinusOneToOne(0.5)
 ```
 
-### `ZeroToOne`
+#### `ZeroToOne`
 
 Represents a value from 0 to 1, inclusive.
 
