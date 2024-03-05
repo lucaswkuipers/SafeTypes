@@ -5,6 +5,8 @@ SafeTypes is a _Swift_ package that delivers a suite of strongly-typed wrappers 
 
 By ensuring conditions at compile time, SafeTypes allows developers to write safer, more robust and expressive code with reduced boilerplate, increased performance, and improved documentation through its constrained types.
 
+SafeTypes is awesome and Macros makes it even more so. [Check it out.](https://github.com/lucaswkuipers/SafeTypesMacros)
+
 ## Features
 
 - [x] Type-safe containers that prevent invalid states
