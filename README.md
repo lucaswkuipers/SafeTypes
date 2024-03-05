@@ -334,8 +334,8 @@ Feel free to reach out to me:
 
 Some of the relevant sources of inspiration:
 
-- [Point-Free's NonEmpty](pointfreeco/swift-nonempty: 🎁 A compile-time guarantee that a collection contains a value.)
-- [Type Driven Design Article Series by Alex Ozun]([pointfreeco/swift-nonempty: 🎁 A compile-time guarantee that a collection contains a value.](https://swiftology.io/collections/type-driven-design/))
+- [Point-Free's NonEmpty](https://github.com/pointfreeco/swift-nonempty)
+- [Type Driven Design Article Series by Alex Ozun](https://swiftology.io/collections/type-driven-design/))
 
 ---
 
