@@ -42,7 +42,7 @@ Below are some of the types provided by SafeTypes and brief examples of their us
 
 ### Collections
 
-#### [`MultiElementsArray`](Sources/SafeTypes/Collections/MultiElementsArray.swift)
+#### [MultiElementsArray](Sources/SafeTypes/Collections/MultiElementsArray.swift)
 
 An array that is guaranteed to have more than one element.
 
@@ -64,7 +64,7 @@ MultiElementsArray(1) // Doesn't compile, missing argument
 MultiElementsArray() // Doesn't compile, missing arguments
 ```
 
-#### [`NonEmptyArray`](Sources/SafeTypes/Collections/NonEmptyArray.swift)
+#### [NonEmptyArray](Sources/SafeTypes/Collections/NonEmptyArray.swift)
 
 An array that is guaranteed to have at least one element.
 
@@ -85,7 +85,7 @@ NonEmptyArray(repeating: 1, count: 1) // Optional<NonEmptyArray<Int>>
 NonEmptyArray() // Doesn't compile, missing arguments
 ```
 
-#### [`NonEmptyString`](Sources/SafeTypes/Collections/NonEmptyString.swift)
+#### [NonEmptyString](Sources/SafeTypes/Collections/NonEmptyString.swift)
 
 A string that's guaranteed to contain at least one character (can be empty character).
 
@@ -109,7 +109,7 @@ NonEmptyString() // Doesn't compile, missing initializer argument
 
 ### Numbers
 
-#### Positive
+#### [Positive](Sources/SafeTypes/Numbers/Positive.swift)
 
 A number that is guaranteed to be greater than zero (value > 0)
 
@@ -134,7 +134,7 @@ Positive() // Doesn't compile, missing initializer argument
 
 > Obs: To use `#Positive` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
-#### Negative
+#### [Negative](Sources/SafeTypes/Numbers/Negative.swift)
 
 A number that is guaranteed to be less than zero (value < 0)
 
@@ -159,7 +159,7 @@ Negative() // Doesn't compile, missing initializer argument
 
 > Obs: To use `#Negative` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
-#### NonPositive
+#### [NonPositive](Sources/SafeTypes/Numbers/NonPositive.swift)
 
 A number that is guaranteed to be less than or equal to zero (value <= 0)
 
@@ -187,7 +187,7 @@ NonPositive() // Doesn't compile, missing initializer argument
 
 > Obs: To use `#NonPositive` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
-#### NonNegative
+#### [NonNegative](Sources/SafeTypes/Numbers/NonNegative.swift)
 
 A number that is guaranteed to be greater than or equal to zero (value >= 0)
 
@@ -216,7 +216,7 @@ NonNegative() // Doesn't compile, missing initializer argument
 
 > Obs: To use `#NonNegative` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
-#### NonZero
+#### [NonZero](Sources/SafeTypes/Numbers/NonZero.swift)
 
 A number that is guaranteed to be different than zero (value != 0)
 
@@ -245,7 +245,7 @@ NonZero() // Doesn't compile, missing initializer argument
 
 > Obs: To use `#NonZero` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
-#### `MinusOneToOne`
+#### [MinusOneToOne](Sources/SafeTypes/Numbers/MinusOneToOne.swift)
 
 Represents a value that's within the range of -1 to 1, inclusive.
 
@@ -280,7 +280,7 @@ MinusOneToOne() // Doesn't compile, missing initializer argument
 
 > Obs: To use `#MinusOneToOne` and other helpful macros, make sure to install the addon macros [SwiftTypesMacros (Swift 5.9+)](https://github.com/lucaswkuipers/SafeTypesMacros)
 
-#### `ZeroToOne`
+#### [ZeroToOne](Sources/SafeTypes/Numbers/ZeroToOne.swift)
 
 Represents a value from 0 to 1, inclusive.
 
