@@ -16,7 +16,7 @@ By ensuring conditions at compile time, SafeTypes allows developers to write saf
 ## Features
 
 - [x] Type-safe containers that prevent invalid states
-- [x] Enforced runtime constraints at compile time
+- [x] Enforced type constraints and operations
 - [x] Enhanced code readability and maintainability
 - [x] Simplified method interfaces and APIs
 - [x] Streamlined unit testing by eliminating redundant unhappy-path checks
