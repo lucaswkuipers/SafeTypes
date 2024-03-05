@@ -123,4 +123,4 @@ Feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/lucaswk/)
 
 ---
 
-Thank you for considering SafeTypes for your next Swift project – we hope you find it as enjoyable to use as we found it to craft!
+Thank you for considering SafeTypes for your next Swift project – I hope you find it as enjoyable to use as I found it to write.
